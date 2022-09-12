@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\foods;
+use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
+
 class FoodSeeder extends Seeder
 {
     /**
@@ -14,10 +16,16 @@ class FoodSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 10; $i++) {
-            foods::create([
-                'name' => 'Food ' . $i,
-                'description' => 'Description ' . $i,
+        $faker = Faker::create('id_ID');
+        $limit = 1000;
+        for ($i = 0; $i < $limit; $i++) {
+            DB::table('foods')->insert([ //,
+                'name' => $faker->word(),
+                'description' => $faker->text,
+                'price' => $faker->numberBetween(1000, 100000),
+                'image' => $faker->imageUrl($width = 640, $height = 480, 'food'),
+                'category_id' => $faker->numberBetween(1, 10),
+                'status' => 'available',
             ]);
         }
     }
