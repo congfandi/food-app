@@ -25,9 +25,9 @@ jobs:
       - name: Deploy To AWS Development Server
         run: |
           echo 'Starting to Deploy...'
-          ssh ubuntu@${{ secrets.IP_DEVELOPMENT }} "
+          ssh root@${{ secrets.IP_DEVELOPMENT }} "
           echo 'Pulling new updated server'
-          cd /var/ww/html/food-app/ && git pull origin main
+          cd /var/www/html/food-app/ && git pull origin main
           echo 'Composer Install'
           composer install
           echo 'migration'
