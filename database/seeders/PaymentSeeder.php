@@ -22,7 +22,7 @@ class PaymentSeeder extends Seeder
             $chart = \App\Models\FoodsChart::where('chart_id', $chartId)->get();
             $total = 0;
             foreach ($chart as $key => $value) {
-                $food = \App\Models\Foods::where('id', $value->food_id)->first();
+                $food = \App\Models\foods::where('id', $value->food_id)->first();
                 $totalPrice = $food->price * $value->quantity;
                 $total += $totalPrice;
             }
