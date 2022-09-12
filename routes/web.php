@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\FoodController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,3 +29,16 @@ Route::get('admin/home', function () {
         'menu' => 'Home',
     ]);
 });
+
+Route::group(
+    [
+        'prefix' => 'admin',
+    ],
+    function () {
+        Route::get('home', [HomeController::class, 'index']);
+        Route::resource('categories', CategoryController::class);
+        Route::resource('orders', OrderController::class);
+        Route::resource('foods', FoodController::class);
+        Route::resource('users', UserController::class);
+    }
+);

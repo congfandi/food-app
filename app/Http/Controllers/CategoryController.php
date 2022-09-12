@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\foods;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
-class FoodController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,10 @@ class FoodController extends Controller
      */
     public function index()
     {
-        $foods = foods::all();
-        return view('admin.food.index', [
-            'foods' => $foods,
-            'menu' => 'Foods',
+        $categories = Categories::all();
+        return view('admin.category.index', [
+            'categories' => $categories,
+            'menu' => 'Categories',
         ]);
     }
 
@@ -28,8 +28,8 @@ class FoodController extends Controller
      */
     public function create()
     {
-        return view('admin.food.create', [
-            'menu' => 'Create Food',
+        return view('admin.category.create', [
+            'menu' => 'Create Category',
         ]);
     }
 
@@ -47,10 +47,10 @@ class FoodController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\foods  $foods
+     * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function show(foods $foods)
+    public function show(Categories $categories)
     {
         //
     }
@@ -58,10 +58,10 @@ class FoodController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\foods  $foods
+     * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function edit(foods $foods)
+    public function edit(Categories $categories)
     {
         //
     }
@@ -70,10 +70,10 @@ class FoodController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\foods  $foods
+     * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, foods $foods)
+    public function update(Request $request, Categories $categories)
     {
         //
     }
@@ -81,10 +81,10 @@ class FoodController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\foods  $foods
+     * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function destroy(foods $foods)
+    public function destroy(Categories $categories)
     {
         //
     }
