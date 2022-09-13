@@ -36,7 +36,7 @@
                       <tr>
                         <td>{{$food->id}}</td>
                         <td>{{$food->name}}</td>
-                        <td>{{$food->price}}</td>
+                        <td>Rp.{{number_format($food->price,2)}}</td>
                         <td>{{$food->discount}}</td>
                         <td><span class="tag tag-success">{{$food->status}}</span></td>
                       </tr>

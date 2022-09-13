@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->integer('chart_id');
+            $table->integer('cart_id');
             $table->string('status')->default('pending');
             $table->string('payment_method')->default('cash');
             $table->integer('total');

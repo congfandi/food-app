@@ -18,16 +18,16 @@ class PaymentSeeder extends Seeder
         $faker = Faker::create('id_ID');
         $limit = 10;
         for ($i = 0; $i < $limit; $i++) {
-            $chartId = $faker->numberBetween(1, 10);
-            $chart = \App\Models\FoodsChart::where('chart_id', $chartId)->get();
+            $cartId = $faker->numberBetween(1, 10);
+            $cart = \App\Models\FoodsCart::where('cart_id', $cartId)->get();
             $total = 0;
-            foreach ($chart as $key => $value) {
+            foreach ($cart as $key => $value) {
                 $food = \App\Models\foods::where('id', $value->food_id)->first();
                 $totalPrice = $food->price * $value->quantity;
                 $total += $totalPrice;
             }
             DB::table('payments')->insert([ //,
-                'chart_id' => $chartId,
+                'cart_id' => $cartId,
                 'payment_method' => $faker->randomElement(['cash', 'credit_card']),
                 'total' => $total,
                 'status' => 'success',

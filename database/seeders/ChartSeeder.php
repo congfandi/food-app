@@ -18,7 +18,7 @@ class ChartSeeder extends Seeder
         $faker = Faker::create('id_ID');
         $limit = 10;
         for ($i = 1; $i <= $limit; $i++) {
-            DB::table('charts')->insert([ //,
+            DB::table('carts')->insert([ //,
                 'user_id' => $i,
                 'status' => 'pending',
             ]);
