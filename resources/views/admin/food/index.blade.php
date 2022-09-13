@@ -27,6 +27,7 @@
                         <th>ID</th>
                         <th>Food Name</th>
                         <th>Price</th>
+                        <th>Quantity</th>
                         <th>Discount</th>
                         <th>Status</th>
                       </tr>
@@ -37,6 +38,7 @@
                         <td>{{$food->id}}</td>
                         <td>{{$food->name}}</td>
                         <td>Rp.{{number_format($food->price,2)}}</td>
+                        <td>{{$food->quantity}}</td>
                         <td>{{$food->discount}}</td>
                         <td><span class="tag tag-success">{{$food->status}}</span></td>
                       </tr>
@@ -44,10 +46,13 @@
                     </tbody>
                   </table>
                 </div>
+                {{ $foods->links('admin.template.pagination') }}
                 <!-- /.card-body -->
               </div>
               <!-- /.card -->
             </div>
           </div>
           <!-- /.row -->
+          <div>
+          </div>
 @endsection

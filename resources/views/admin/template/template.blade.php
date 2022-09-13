@@ -25,6 +25,9 @@
   <link rel="stylesheet" href="{{url('plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{url('plugins/summernote/summernote-bs4.min.css')}}">
+  <link rel="stylesheet" href="{{url('plugins/jsgrid/jsgrid.min.css')}}">
+  <link rel="stylesheet" href="{{url('plugins/jsgrid/jsgrid-theme.min.css')}}">
+  @yield('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -89,5 +92,7 @@
 <script src="{{url('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{url('dist/js/adminlte.js')}}"></script>
+<script src="{{url('plugins/jsgrid/jsgrid.min.js')}}"></script>
+@yield('script')
 </body>
 </html>

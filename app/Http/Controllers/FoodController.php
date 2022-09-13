@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\foods;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class FoodController extends Controller
 {
     /**
@@ -14,9 +14,8 @@ class FoodController extends Controller
      */
     public function index()
     {
-        $foods = foods::all();
         return view('admin.food.index', [
-            'foods' => $foods,
+            'foods' => DB::table('foods')->paginate(15),
             'menu' => 'Foods',
         ]);
     }
