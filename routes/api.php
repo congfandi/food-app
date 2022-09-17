@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\FoodController;
+use App\Http\Controllers\CounterController;
 use App\Http\Models\Carts;
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('order', [CartController::class, 'order']);
 
 Route::get('foods', [FoodController::class, 'index']);
+
+Route::resource('counters', CounterController::class);
