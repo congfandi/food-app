@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             ChartSeeder::class,
             FoodsChartSeeder::class,
             PaymentSeeder::class,
+            CounterSeeder::class,
         ]);
     }
 }
