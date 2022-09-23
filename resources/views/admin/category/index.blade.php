@@ -1,3 +1,3 @@
-@extends('admin.template.template')
+@extends('admin.template.base')
 @section('content')
 @endsection

@@ -7,6 +7,9 @@ use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FandiController;
+use App\Http\Controllers\web\AbsensiController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +21,17 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
+// Route::get('absensi','AbsensiController@index');
 
+
+Route::middleware('fandi')->get('/user/{name?}', [FandiController::class,'fandi']);
+
+
+Route::resource('absensi',AbsensiController::class);
+
+Route::get('fandi', function () {
+    return view('content1');
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,8 +43,21 @@ Route::get('admin/home', function () {
     ]);
 });
 
+Route::get('page1', function () {
+    return view('page1');
+})->name('page1');
+
+Route::get('page2', function () {
+    return view('pge2');
+});
+
+Route::get('page1template', function () {
+    return view('page1template');
+});
+
 Route::group(
     [
+        'middleware'=> 'auth',
         'prefix' => 'admin',
     ],
     function () {
@@ -42,3 +68,7 @@ Route::group(
         Route::resource('users', UserController::class);
     }
 );
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
